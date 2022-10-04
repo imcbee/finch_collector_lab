@@ -1,12 +1,24 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    
-</body>
-</html>
+{% extends 'base.html' %}
+
+{% block title%} Home{% endblock%}
+
+{% block content%}
+    {% comment %} <h1>Welcome to KeyCaps!</h1> {% endcomment %}
+    <section class="hero is-success is-halfheight">
+        <div class="hero-body">
+          <div class="">
+            <p class="title">
+              Welcome to KeyCaps!!
+            </p>
+            <p class="subtitle">
+              For your keycap needs!
+            </p>
+            <div class="home-pictures">
+                {% comment %} ! image carousel {% endcomment %}
+                <img src="https://d2fu7qgd3tdbcc.cloudfront.net/images/detailed/2/Max_Keyboard_Custom_Keys_3.jpg?t=1462580880" alt="" height='300px' width='300px'>
+            </div>
+          </div>
+        </div>
+      </section>
+{% endblock%}
+

@@ -1,3 +1,5 @@
+import os
+
 """
 Django settings for finch_collector_lab project.
 
@@ -76,7 +78,7 @@ WSGI_APPLICATION = 'finch_collector_lab.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'finch_collector',
     }
 }
@@ -122,3 +124,8 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+# https://docs.djangoproject.com/en/3.1/howto/static-files/
+STATIC_URL = '/static/'
+STATICFILES_DIRS = [os.path.join(BASE_DIR,'main_app/static')]

@@ -1,12 +1,19 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    
-</body>
-</html>
+{% extends 'base.html' %}
+
+{% block title%} About {% endblock%}
+
+{% block content%}
+<section class="hero is-large is-info">
+    <div class="hero-body">
+      <p class="title">
+        About KeyCaps:
+      </p>
+      <p class="subtitle">
+        Isn't it hard to find key caps <strong>online</strong>?  Have you had trouble finding <strong>available</strong> keycaps?  Are they the <strong>designs</strong> that you actually like?
+      </p>
+      <p class="info">
+        This website is was made to help users find the right key caps that they would like.
+      </p>
+    </div>
+  </section>
+{% endblock%}
