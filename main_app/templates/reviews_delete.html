@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block title%} Delete Review {% endblock%}
+
+{% block content %}
+{% comment %} <h1 class="title pt-5"> Are you sure you want to delete this keycap review?</h1>
+<h1>{{review.keycap_id}}</h1>
+<form method="post">
+    {% csrf_token %}
+    <div class="buttons">
+        <input class="button is-danger" type="submit" value="Confirm" />
+        <a class="button is-primary" href="{% url 'review_detail' reviews.pk reviews.pk %}">Cancel</a>
+    </div>
+</form> {% endcomment %}
+{% endblock %}

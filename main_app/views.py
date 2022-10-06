@@ -69,7 +69,7 @@ class ProductsUpdate(UpdateView):
         return reverse('products_detail', kwargs={'pk': self.object.pk})
 
 #! ---------------------- REVIEWS ROUTES ----------------------
-class ReviewsDetail(DetailView):
+class ReviewDetail(DetailView):
     model = Reviews
     template_name= 'reviews_detail.html'
 
@@ -81,17 +81,15 @@ class ReviewCreate(View):
         Reviews.objects.create(rating=rating, comment=comment, keycap=keycap)
         return redirect('products_detail', pk=pk)
 
-# class ReviewsCreate(CreateView):
-#     model = Reviews
-#     fields = ['rating', 'comment']
-#     template_name = 'reviews_create.html'
-#     success_url = "/products/<int:pk>"
-#     # * Do I need more things here?
-
-# class ReviewsDelete(DeleteView):
+# class ReviewDelete(DeleteView):
 #     model = Reviews
 #     template_name = "reviews_delete.html"
-#     success_url = "/products/<int:pk>"
+#     success_url = "/products"
+
+    # def get_context_data(self, **kwargs):
+    #     context = super().get_context_data(**kwargs)
+    #     context['reviews'] = Reviews.objects.filter()
+    #     return context
 
 # class ReviewsUpdate(UpdateView):
 #     model = Reviews

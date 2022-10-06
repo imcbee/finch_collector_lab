@@ -67,10 +67,9 @@
     </form>
     {% comment %} ? Display Comments {% endcomment %}
     <div class="comment_display">
-        
         <div class="comment_container">
-            {% comment %}* for loop the list of comments {% endcomment %}
-            {% for review in reviews %}
+            {% comment %}todo need to loop through the keycaps.review in order to get the reviews associated with the keycap{% endcomment %}
+            {% for review in keycaps.reviews.all %}
                 <div class="container">
                     <div class="comment">
                         <strong>Rating:</strong> {{review.rating}}
@@ -79,6 +78,14 @@
                         <strong>Comment:</strong> {{review.comment}}
                     </div>
                 </div>
+                {% comment %} ? Edit and Delete {% endcomment %}
+                {% comment %} <div class="edit-delete">
+                    <a href="/products/{{keycaps.id}}/reviews/{{review.id}}/delete" class="button is-danger">
+                        <span class="icon">
+                            <i class="fas fa-trash-alt"></i>
+                        </span>
+                    </a>
+                </div> {% endcomment %}
             {% endfor %}
         </div>
     </div>
