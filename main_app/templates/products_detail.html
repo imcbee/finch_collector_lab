@@ -15,33 +15,72 @@
         <span class="icon has-text-info">
             <i class="fas fa-check-circle"></i>
         </span>
-        <span>Verified</span>
+        <span>Available</span>
     </div>
     {% endif %}
     <h1 class="title">{{keycaps.name}}</h1>
 </div>
 
-
+{% comment %} ! Product edit/delete & Product Info {% endcomment %}
 <div class="detail__container">
     <div class="buttons">
-        {% comment %} ! Edit {% endcomment %}
+        {% comment %} ? Edit {% endcomment %}
         <a href="{% url 'products_update' keycaps.pk %}" class="button is-info">
             <span class="icon">
                 <i class="fas fa-edit"></i>
             </span>
         </a> 
-        {% comment %} ! Delete {% endcomment %}
+        {% comment %} ? Delete {% endcomment %}
         <a href="/products/{{keycaps.id}}/delete" class="button is-danger">
             <span class="icon">
                 <i class="fas fa-trash-alt"></i>
             </span>
         </a>
     </div>
-    {% comment %} ! Product Info {% endcomment %}
+    {% comment %} ? Product Info {% endcomment %}
     <div class="detail__about">
-        <h4 class="title is-4">About</h4>
-        <p>{{keycaps.info}}</p>
+        <h1 class="title is-4">About</h1>
+        <p class='about_section'>{{keycaps.info}}</p>
     </div>
 </div>
 
+{% comment %}! Review Section {% endcomment %}
+<div class="comments_container">
+    <h1 class="title is-4">Reviews</h1>
+    {% comment %} ? Form to make comments {% endcomment %}
+    <form action="{% url 'review_create' keycaps.pk %}" method="post">
+        {% csrf_token %}
+        <div class="field has-addons">
+            {% comment %} ? Rating {% endcomment %}
+            <div class="control">
+                <input class="input" type="number" name="rating" placeholder="Rating: 1-5">
+            </div>
+            {% comment %} ? Comment {% endcomment %}
+            <div class="control">
+                <input class="input" type="text" name="comment" placeholder="Write your review">
+            </div>
+            {% comment %} ? Submit {% endcomment %}
+            <div class="control">
+                <input class="button is-primary" type="submit" value="Submit">
+            </div>
+        </div>
+    </form>
+    {% comment %} ? Display Comments {% endcomment %}
+    <div class="comment_display">
+        
+        <div class="comment_container">
+            {% comment %}* for loop the list of comments {% endcomment %}
+            {% for review in reviews %}
+                <div class="container">
+                    <div class="comment">
+                        <strong>Rating:</strong> {{review.rating}}
+                    </div>
+                    <div class="comment">
+                        <strong>Comment:</strong> {{review.comment}}
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
 {% endblock%}

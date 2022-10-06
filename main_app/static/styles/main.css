@@ -36,7 +36,13 @@ body {
   }
   
   p {
-    font-size: 12px;
+    font-size: 20px;
+  }
+  strong {
+    color: #00d1b2;
+  }
+  .comment {
+    font-size: 20px;
   }
   
   .detail__img {
@@ -75,4 +81,11 @@ body {
   
   .detail__container {
     margin-top: 500px;
+  }
+  
+  .about_section{
+    margin: 30px;
+  }
+  .footer {
+    background-color: #121212;
   }
