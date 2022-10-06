@@ -1,4 +1,5 @@
 import os
+import django_heroku
 
 """
 Django settings for finch_collector_lab project.
@@ -129,3 +130,5 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR,'main_app/static')]
+
+django_heroku.settings(locals())
